@@ -98,17 +98,6 @@ apt-get -qq -y --purge install lxrandr
 # Install Internet packages
 apt-get -qq -y --purge install flashplugin-installer google-talkplugin pidgin qpdfview libqtwebkit4
 
-# Install local Skype 32Bit package
-if [ ${arch} == 'x86_64' ]; then
-  # 64-bit
-  wget https://go.skype.com/skypeforlinux-64.deb
-  dpkg -i skypeforlinux-64.deb
-else
-  # 32-bit 
-  dpkg -i skype-ubuntu_4.1.0.20-1_i386.deb
-fi
-
-
 # Install graphic
 apt-get -qq -y --purge install gimp inkscape
 apt-get -qq -y --purge remove imagemagick
@@ -160,8 +149,6 @@ dpkg -i --force-overwrite systemlock_0.1-1_all.deb
 apt-get install -f
 apt-get -qq -y remove dconf-tools
 
-# Installing SUSI Desktop package
-dpkg -i SUSI-desktop.deb
 
 # Clean up the chroot before
 perl -i -nle 'print unless /^Package: language-(pack|support)/ .. /^$/;' /var/lib/apt/extended_states
@@ -170,7 +157,7 @@ rm -rf /tmp/*
 #rm /etc/resolv.conf
 rm meilix-default-settings_1.0_all.deb
 rm meilix-metapackage_1.0-1_all.deb
-rm systemlock_0.1-1_all.deb plymouth-meilix-logo_1.0-1_all.deb plymouth-meilix-text_1.0-1_all.deb skype-ubuntu_4.1.0.20-1_i386.deb
+rm systemlock_0.1-1_all.deb plymouth-meilix-logo_1.0-1_all.deb plymouth-meilix-text_1.0-1_all.deb
 rm meilix-imclient_*_all.deb
 apt-get remove --purge wget apt-transport-https
 
