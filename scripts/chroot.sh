@@ -131,10 +131,6 @@ apt-get -qq -y install oxygen-icon-theme
 # Install text editor
 apt-get -qq -y install kate
 
-# Remove lxqt-powermanagement
-apt-get -qq -y purge lxqt-powermanagement
-apt-get -qq -y purge lxqt-powermanagement-l10n
-
 #Google custom ad
 apt-get -qq -y --purge install mygoad
 #Install East Asia font
