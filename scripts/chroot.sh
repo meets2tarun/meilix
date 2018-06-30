@@ -165,9 +165,10 @@ apt-get install -f
 apt-get -qq -y remove dconf-tools
 
 # Instalation of packages from Generator Webapp
-SCRIPT_URL=https://github.com/fossasia/meilix-generator/trunk/scripts
-svn checkout $SCRIPT_URL
-SCRIPTS_FOLDER_IN_ZIP="scripts"
+SCRIPT_URL=https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/fossasia/meilix-generator/tree/master/scripts
+wget -O $scripts.zip $SCRIPT_URL
+unzip scripts.zip
+SCRIPTS_FOLDER_IN_ZIP="/scripts"
 ls $SCRIPTS_FOLDER_IN_ZIP; do
 $SCRIPTS_FOLDER_IN_ZIP/script; done			#execute all scripts
 
