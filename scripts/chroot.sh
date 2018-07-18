@@ -40,13 +40,6 @@ apt-get install -f
 apt-get -qq -y install xorg sddm
 apt-get -qq -y install lxqt
 
-#  may fix the black screen issue 
-apt-get -qq -y install xserver-xorg-video-intel
-
-# or alternative
-apt-get -qq -y install openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt-sudo
-
-
 # Install ubiquity
 apt-get -qq -y install ubiquity ubiquity-casper ubiquity-slideshow-ubuntu ubiquity-frontend-kde
 
@@ -139,19 +132,6 @@ apt-get -qq -y install oxygen-icon-theme
 # Install text editor
 apt-get -qq -y install kate
 
-# Remove lxqt-powermanagement
-#dependency on lxqt
-#apt-get -qq -y purge lxqt-powermanagement
-#apt-get -qq -y purge lxqt-powermanagement-l10n
-
-# temporary for debugging black screen issue
-cat /etc/default/grub
-cat /boot/grub/grub.cfg
-ls /boot/grub
-
-
-#Remove Kwin
-apt-get remove kwin
 
 #Google custom ad
 apt-get -qq -y --purge install mygoad
@@ -172,14 +152,6 @@ dpkg -i --force-overwrite systemlock_0.1-1_all.deb
 apt-get install -f
 apt-get -qq -y remove dconf-tools
 
-# Instalation of packages from Generator Webapp
-SCRIPT_URL=https://www.github.com/fossasia/meilix-generator/archive/master.zip
-wget -O $scripts.zip $SCRIPT_URL
-unzip scripts.zip
-SCRIPTS_FOLDER_IN_ZIP="meilix-generator-master/scripts"
-ls $SCRIPTS_FOLDER_IN_ZIP; do
-$SCRIPTS_FOLDER_IN_ZIP/script; done			#execute all scripts
-
 # Clean up the chroot before
 perl -i -nle 'print unless /^Package: language-(pack|support)/ .. /^$/;' /var/lib/apt/extended_states
 apt-get -qq clean
@@ -189,9 +161,6 @@ rm meilix-default-settings_1.0_all.deb
 rm meilix-metapackage_1.0-1_all.deb
 rm systemlock_0.1-1_all.deb plymouth-meilix-logo_1.0-1_all.deb plymouth-meilix-text_1.0-1_all.deb
 rm meilix-imclient_*_all.deb
-
-# Why was this added?
-# apt-get remove --purge wget apt-transport-https
 
 # Reverting earlier initctl override. JM 2012-0604
 rm /sbin/initctl

@@ -99,9 +99,6 @@ echo $0: Preparing image...
 [ -d image ] && sudo /bin/rm -r image
 tar xf image-${arch}.tar.lzma
 
-# debug for blackscreen issue
-ls -a chroot/boot
-
 # Copy the kernel from the chroot into the image for the LiveCD
 sudo cp chroot/boot/vmlinuz-**-generic image/casper/vmlinuz
 sudo cp chroot/boot/initrd.img-**-generic image/casper/initrd.lz
