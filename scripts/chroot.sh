@@ -25,11 +25,6 @@ wget -qO - https://download.jitsi.org/jitsi-key.gpg.key | apt-key add -
 # Create a sources.list.d file with the repository
 sudo sh -c "echo 'deb https://download.jitsi.org stable/' > /etc/apt/sources.list.d/jitsi-stable.list"
 
-if [ ${arch} == 'amd64' ]; then
-# add support for i386 packages
-dpkg --add-architecture i386
-fi
-
 # Update in-chroot package database
 apt-get -qq update
 
@@ -42,16 +37,10 @@ dpkg -i meilix-metapackage*.deb
 apt-get install -f
 
 # Install base packages
-#apt-get -qq -y install xorg sddm
-apt-get -qq -y install xorg lightdm
+apt-get -qq -y install xorg sddm
+#apt-get -qq -y install xorg lightdm
 apt-get -qq -y install lxqt
 apt-get -qq -y install openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt-sudo
-
-# set 
-dpkg-reconfigure lightdm 
-
-# temp as fallback
-apt-get -qq -y install lubuntu-desktop
 
 #  may fix the black screen issue 
 # apt-get -qq -y install xserver-xorg-video-intel
@@ -147,17 +136,6 @@ apt-get -qq -y install oxygen-icon-theme
 
 # Install text editor
 # apt-get -qq -y install kate
-
-# Remove lxqt-powermanagement
-#dependency on lxqt
-#apt-get -qq -y purge lxqt-powermanagement
-#apt-get -qq -y purge lxqt-powermanagement-l10n
-
-# temporary for debugging black screen issue
-cat /etc/default/grub
-cat /boot/grub/grub.cfg
-ls /boot/grub
-
 
 #Remove Kwin
 #apt-get remove kwin
