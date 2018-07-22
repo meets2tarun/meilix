@@ -33,6 +33,9 @@ fi
 # Update in-chroot package database
 apt-get -qq update
 
+# Adding a new user
+useradd test
+
 # Install core packages
 apt-get -qq -y --purge install ubuntu-standard casper lupin-casper \
   laptop-detect os-prober linux-generic
