@@ -33,9 +33,6 @@ fi
 # Update in-chroot package database
 apt-get -qq update
 
-# Adding a new user
-useradd test
-
 # Install core packages
 apt-get -qq -y --purge install ubuntu-standard casper lupin-casper \
   laptop-detect os-prober linux-generic
@@ -45,10 +42,9 @@ dpkg -i meilix-metapackage*.deb
 apt-get install -f
 
 # Install base packages
-#apt-get -qq -y install xorg sddm
-apt-get -qq -y install xorg lightdm
 apt-get -qq -y install lxqt
 apt-get -qq -y install openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt-sudo
+apt-get -qq -y install xorg lightdm
 
 # set 
 dpkg-reconfigure lightdm 
