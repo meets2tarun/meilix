@@ -182,7 +182,7 @@ apt-get -qq -y --purge install ibus-unikey ibus-anthy ibus-pinyin ibus-m17n
 apt-get -qq -y --purge install im-switch
 
 # Meilix default settings
-dpkg -i --force-overwrite meilix-default-settings_1.0_all.deb
+# dpkg -i --force-overwrite meilix-default-settings_1.0_all.deb
 update-initramfs -u -k all
 dpkg -i --force-overwrite systemlock_0.1-1_all.deb
 apt-get install -f
@@ -202,7 +202,7 @@ perl -i -nle 'print unless /^Package: language-(pack|support)/ .. /^$/;' /var/li
 apt-get -qq clean
 rm -rf /tmp/*
 #rm /etc/resolv.conf
-rm meilix-default-settings_1.0_all.deb
+#rm meilix-default-settings_1.0_all.deb
 rm meilix-metapackage_1.0-1_all.deb
 rm systemlock_0.1-1_all.deb plymouth-meilix-logo_1.0-1_all.deb plymouth-meilix-text_1.0-1_all.deb
 rm meilix-imclient_*_all.deb

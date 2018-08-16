@@ -74,7 +74,7 @@ sudo cp -vr /etc/resolvconf chroot/etc/resolvconf
 sudo cp -v sources.list chroot/etc/apt/sources.list
 
 # Copy our custom packages
-sudo cp -v meilix-default-settings_*_all.deb chroot
+# sudo cp -v meilix-default-settings_*_all.deb chroot
 sudo cp -v systemlock_*_all.deb chroot
 sudo cp -v plymouth-meilix-logo_*_all.deb chroot
 sudo cp -v plymouth-meilix-text_*_all.deb chroot
